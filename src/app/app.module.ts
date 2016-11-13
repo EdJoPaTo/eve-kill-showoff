@@ -10,8 +10,10 @@ import { LoadKillsService } from './load-kills.service';
 import { AppComponent } from './app.component';
 import { KillComponent } from './kill/kill.component';
 import { KillListComponent } from './kill-list/kill-list.component';
+import { LasthitPipe } from './lasthit.pipe';
 import { ModuloPipe } from './modulo.pipe';
 import { ShortnumberPipe } from './shortnumber.pipe';
+import { TopdamagePipe } from './topdamage.pipe';
 import { VictimShortNamePipe } from './kill/victim-short-name.pipe';
 
 @NgModule({
@@ -19,8 +21,10 @@ import { VictimShortNamePipe } from './kill/victim-short-name.pipe';
     AppComponent,
     KillComponent,
     KillListComponent,
+    LasthitPipe,
     ModuloPipe,
     ShortnumberPipe,
+    TopdamagePipe,
     VictimShortNamePipe
   ],
   imports: [

@@ -12,7 +12,10 @@
         </div>
       </div>
       <div class="content">
-        SolarSystem ({{ killmail.solarSystemID }}) / Region
+        Final Blow: {{ (killmail.attackers | lasthit).characterName }}
+        <br /> Top Damage: {{ (killmail.attackers | topdamage).characterName }} ({{ (killmail.attackers | topdamage).damageDone | shortnumber }} Dmg)
+        <br /> SolarSystem ({{ killmail.solarSystemID }}) / Region
+        <br /> {{ killmail.killTime }}
         <br />
         <a target="_blank" [href]="'//zkillboard.com/kill/'+ killmail.killID +'/'">view on zKillboard</a>
       </div>
