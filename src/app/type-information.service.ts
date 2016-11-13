@@ -10,7 +10,7 @@ export class TypeInformationService {
     private http: Http
   ) { }
 
-  get(id: number) {
+  get(id: number): Observable<any> {
     if (!this.cache[id]) {
       this.cache[id] = new ReplaySubject(1);
       this.http
