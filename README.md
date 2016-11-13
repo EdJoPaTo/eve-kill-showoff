@@ -5,8 +5,6 @@ Because all players are not in one corporation or alliance its hard to track act
 
 This page want to show kills by a simple list of kill ids instead of grabbing them from pilots, corporations or alliances.
 
-Tip: The list (json) can easily be edited from scripts.
-
 ![EVE Kill Showoff Screenshot](https://raw.githubusercontent.com/EdJoPaTo/eve-kill-showoff/master/screenshot.jpg)
 
 ## Host a showoff on your own
@@ -14,6 +12,7 @@ Tip: The list (json) can easily be edited from scripts.
 - Download the files from the current [Release](https://github.com/EdJoPaTo/eve-kill-showoff/releases).
 - Host them on your webserver (nginx does that pretty well for static content).
 - modify `assets/kills.json` with your own kill ids to show.
+  - Tip: The list (json) can easily be edited from scripts.
 
 ## Development
 
