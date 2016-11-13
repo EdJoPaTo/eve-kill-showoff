@@ -1,0 +1,21 @@
+<div class="tile is-parent">
+  <article class="tile is-child notification ship-background" [style.background-image]="'url(http://imageserver.eveonline.com/Render/'+ killmail.victim.shipTypeID +'_512.png)'">
+    <div class="content">
+      <div class="columns">
+        <div class="column">
+          <p class="title">Shipname {{ killmail.victim.shipTypeID }}</p>
+          <p class="subtitle">{{ killmail.victim | victimShortName }}</p>
+        </div>
+        <div class="column is-narrow">
+          <p class="title has-text-right">{{ killmail.zkb.totalValue | number: '1.2-2' }} ISK</p>
+          <p class="subtitle has-text-right">{{ killmail.attackers.length | number: '1.0-0' }} Involved</p>
+        </div>
+      </div>
+      <div class="content">
+        SolarSystem ({{ killmail.solarSystemID }}) / Region
+        <br />
+        <a target="_blank" [href]="'//zkillboard.com/kill/'+ killmail.killID +'/'">view on zKillboard</a>
+      </div>
+    </div>
+  </article>
+</div>
