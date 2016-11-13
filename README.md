@@ -14,6 +14,10 @@ This page want to show kills by a simple list of kill ids instead of grabbing th
 - modify `assets/kills.json` with your own kill ids to show.
   - Tip: The list (json) can easily be edited from scripts.
 
+## Thanks to
+
+This project was realized with the [zKillboard API](https://github.com/zKillboard/zKillboard/wiki/API-(Killmails)), [ESI (EVE Swagger Interface)](https://esi.tech.ccp.is/) and the [EVE Image Server](https://eveonline-third-party-documentation.readthedocs.io/en/latest/imageserver/intro.html)
+
 ## Development
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
