@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { KillComponent } from './kill/kill.component';
 import { KillListComponent } from './kill-list/kill-list.component';
 import { ModuloPipe } from './modulo.pipe';
+import { ShortnumberPipe } from './shortnumber.pipe';
 import { VictimShortNamePipe } from './kill/victim-short-name.pipe';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { VictimShortNamePipe } from './kill/victim-short-name.pipe';
     KillComponent,
     KillListComponent,
     ModuloPipe,
+    ShortnumberPipe,
     VictimShortNamePipe
   ],
   imports: [
