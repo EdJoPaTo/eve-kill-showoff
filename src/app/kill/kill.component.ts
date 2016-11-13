@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { Killmail } from '../z-killboard';
+import { SolarSystemService } from '../solar-system.service';
 import { TypeInformationService } from '../type-information.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class KillComponent implements OnInit {
   @Input() killmail: Killmail;
 
   constructor(
+    private solarSystemService: SolarSystemService,
     private typeInformationService: TypeInformationService
   ) { }
 
