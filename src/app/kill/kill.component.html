@@ -3,7 +3,9 @@
     <div class="content">
       <div class="columns is-mobile">
         <div class="column">
-          <p class="title">{{ typeName(killmail.victim.shipTypeID) | async }}</p>
+          <p class="title">
+            <a target="_blank" [href]="'//zkillboard.com/kill/'+ killmail.killID +'/'">{{ typeName(killmail.victim.shipTypeID) | async }}</a>
+          </p>
           <p class="subtitle">{{ killmail.victim | victimShortName }}</p>
         </div>
         <div class="column is-narrow">
@@ -12,8 +14,8 @@
         </div>
       </div>
       <div class="content">
-        Final Blow: {{ (killmail.attackers | lasthit).characterName }}
-        <br /> Top Damage: {{ (killmail.attackers | topdamage).characterName }} ({{ (killmail.attackers | topdamage).damageDone | shortnumber }} Dmg)
+        Final Blow: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | lasthit).characterID +'/'" target="_blank">{{ (killmail.attackers | lasthit).characterName }}</a>
+        <br /> Top Damage: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | topdamage).characterID +'/'" target="_blank">{{ (killmail.attackers | topdamage).characterName }}</a> ({{ (killmail.attackers | topdamage).damageDone | shortnumber }} Dmg)
         <br /> SolarSystem ({{ killmail.solarSystemID }}) / Region
         <br /> {{ killmail.killTime }}
         <br />
