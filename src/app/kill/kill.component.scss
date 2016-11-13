@@ -1,7 +1,12 @@
 .ship-background {
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
+  transition: background-size 1s ease-out;
+
+  &:hover {
+    background-size: 120%;
+  }
 
   .content {
     color: white;
