@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { ZKillboardModule } from './z-killboard';
 
 import { LoadKillsService } from './load-kills.service';
+import { TypeInformationService } from './type-information.service';
 
 import { AppComponent } from './app.component';
 import { KillComponent } from './kill/kill.component';
@@ -34,7 +35,8 @@ import { VictimShortNamePipe } from './kill/victim-short-name.pipe';
     ZKillboardModule
   ],
   providers: [
-    LoadKillsService
+    LoadKillsService,
+    TypeInformationService
   ],
   bootstrap: [AppComponent]
 })

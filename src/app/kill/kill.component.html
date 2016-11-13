@@ -3,7 +3,7 @@
     <div class="content">
       <div class="columns is-mobile">
         <div class="column">
-          <p class="title">Shipname {{ killmail.victim.shipTypeID }}</p>
+          <p class="title">{{ typeName(killmail.victim.shipTypeID) | async }}</p>
           <p class="subtitle">{{ killmail.victim | victimShortName }}</p>
         </div>
         <div class="column is-narrow">
