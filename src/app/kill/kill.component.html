@@ -1,7 +1,7 @@
 <div class="tile is-parent">
   <article class="tile is-child notification ship-background" [style.background-image]="'url(http://imageserver.eveonline.com/Render/'+ killmail.victim.shipTypeID +'_512.png)'">
     <div class="content">
-      <div class="columns">
+      <div class="columns is-mobile">
         <div class="column">
           <p class="title">Shipname {{ killmail.victim.shipTypeID }}</p>
           <p class="subtitle">{{ killmail.victim | victimShortName }}</p>
