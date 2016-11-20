@@ -6,7 +6,15 @@
           <p class="title">
             <a target="_blank" [href]="'//zkillboard.com/kill/'+ killmail.killID +'/'">{{ typeName(killmail.victim.shipTypeID) | async }}</a>
           </p>
-          <p class="subtitle">{{ killmail.victim | victimShortName }}</p>
+          <p class="subtitle" *ngIf="killmail.victim.characterID">
+            Victim: <a [href]="'https://zkillboard.com/character/'+ killmail.victim.characterID +'/'" target="_blank">{{ killmail.victim.characterName }}</a>
+          </p>
+          <p class="subtitle" *ngIf="!killmail.victim.characterID || !killmail.victim.allianceID">
+            Corp: <a [href]="'https://zkillboard.com/corporation/'+ killmail.victim.corporationID +'/'" target="_blank">{{ killmail.victim.corporationName }}</a>
+          </p>
+          <p class="subtitle" *ngIf="killmail.victim.allianceID">
+            Alliance: <a [href]="'https://zkillboard.com/alliance/'+ killmail.victim.allianceID +'/'" target="_blank">{{ killmail.victim.allianceName }}</a>
+          </p>
         </div>
         <div class="column is-narrow">
           <p class="title has-text-right">{{ killmail.zkb.totalValue | shortnumber }} ISK</p>

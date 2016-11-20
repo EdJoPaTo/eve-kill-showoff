@@ -16,7 +16,6 @@ import { LasthitPipe } from './lasthit.pipe';
 import { ModuloPipe } from './modulo.pipe';
 import { ShortnumberPipe } from './shortnumber.pipe';
 import { TopdamagePipe } from './topdamage.pipe';
-import { VictimShortNamePipe } from './kill/victim-short-name.pipe';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { VictimShortNamePipe } from './kill/victim-short-name.pipe';
     LasthitPipe,
     ModuloPipe,
     ShortnumberPipe,
-    TopdamagePipe,
-    VictimShortNamePipe
+    TopdamagePipe
   ],
   imports: [
     BrowserModule,
