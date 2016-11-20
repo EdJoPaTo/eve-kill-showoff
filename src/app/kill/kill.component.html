@@ -23,7 +23,8 @@
       </div>
       <div class="content">
         Final Blow: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | lasthit).characterID +'/'" target="_blank">{{ (killmail.attackers | lasthit).characterName }}</a>
-        <br /> Top Damage: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | topdamage).characterID +'/'" target="_blank">{{ (killmail.attackers | topdamage).characterName }}</a> ({{ (killmail.attackers | topdamage).damageDone | shortnumber }} Dmg)
+        <br /> Top Damage: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | topdamage).characterID +'/'" target="_blank">{{ (killmail.attackers | topdamage).characterName }}</a>
+        <span [title]="(killmail.attackers | topdamage).damageDone | shortnumber: true + ' Dmg'">({{ (killmail.attackers | topdamage).damageDone / killmail.victim.damageTaken * 100 | number: '1.1-1' }}% of Dmg)</span>
         <br /> Total Damage: {{ killmail.victim.damageTaken | shortnumber: true }} Dmg
         <div class="columns is-mobile">
           <div class="column">
