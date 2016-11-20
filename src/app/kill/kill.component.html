@@ -24,6 +24,7 @@
       <div class="content">
         Final Blow: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | lasthit).characterID +'/'" target="_blank">{{ (killmail.attackers | lasthit).characterName }}</a>
         <br /> Top Damage: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | topdamage).characterID +'/'" target="_blank">{{ (killmail.attackers | topdamage).characterName }}</a> ({{ (killmail.attackers | topdamage).damageDone | shortnumber }} Dmg)
+        <br /> Total Damage: {{ killmail.victim.damageTaken | shortnumber: true }} Dmg
         <div class="columns is-mobile">
           <div class="column">
             <a [href]="'//zkillboard.com/system/'+ killmail.solarSystemID +'/'" target="_target">{{ solarSystemService.name(killmail.solarSystemID) | async }}</a>
