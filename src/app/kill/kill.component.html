@@ -16,10 +16,14 @@
       <div class="content">
         Final Blow: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | lasthit).characterID +'/'" target="_blank">{{ (killmail.attackers | lasthit).characterName }}</a>
         <br /> Top Damage: <a [href]="'//zkillboard.com/character/'+ (killmail.attackers | topdamage).characterID +'/'" target="_blank">{{ (killmail.attackers | topdamage).characterName }}</a> ({{ (killmail.attackers | topdamage).damageDone | shortnumber }} Dmg)
-        <br /> <a [href]="'//zkillboard.com/system/'+ killmail.solarSystemID +'/'" target="_target">{{ solarSystemService.name(killmail.solarSystemID) | async }}</a>
-        <br /> {{ killmail.killTime }}
-        <br />
-        <a target="_blank" [href]="'//zkillboard.com/kill/'+ killmail.killID +'/'">view on zKillboard</a>
+        <div class="columns is-mobile">
+          <div class="column">
+            <a [href]="'//zkillboard.com/system/'+ killmail.solarSystemID +'/'" target="_target">{{ solarSystemService.name(killmail.solarSystemID) | async }}</a>
+          </div>
+          <div class="column is-narrow">
+            {{ killmail.killTime }}
+          </div>
+        </div>
       </div>
     </div>
   </article>
