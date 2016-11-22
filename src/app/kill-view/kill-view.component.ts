@@ -54,13 +54,13 @@ export class KillViewComponent implements OnInit, OnDestroy {
       .subscribe(kills => { }, error => this.errorMessage = 'There was a problem optaining kill information from zKillboard!');
 
     this.sub = this.route.params.subscribe(params => {
-      if (!params.year && !params.month) {
+      if (!params['year'] && !params['month']) {
         let today = new Date();
         this.year = today.getUTCFullYear();
         this.month = today.getUTCMonth() + 1;
       } else {
-        this.year = Number(params.year);
-        this.month = Number(params.month);
+        this.year = Number(params['year']);
+        this.month = Number(params['month']);
       }
     });
   }
