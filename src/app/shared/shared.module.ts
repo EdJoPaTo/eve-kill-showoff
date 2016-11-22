@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ConfigService } from './config.service';
+
 import { ModuloPipe } from './modulo.pipe';
 import { ShortnumberPipe } from './shortnumber.pipe';
 
@@ -12,6 +14,9 @@ import { ShortnumberPipe } from './shortnumber.pipe';
     ModuloPipe,
     ShortnumberPipe
   ],
+  providers: [
+    ConfigService
+  ]
   exports: [
     ModuloPipe,
     ShortnumberPipe

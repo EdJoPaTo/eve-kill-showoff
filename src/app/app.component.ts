@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
-import { ConfigService } from './config.service';
+import { ConfigService } from './shared';
 import { KillmailService, Killmail } from './z-killboard';
 import { LoadKillsService } from './load-kills.service';
 
