@@ -1,0 +1,17 @@
+<section class="hero is-medium" [class.is-large]="background && !logo" [style.background-image]="background" [class.background-is-dark]="background && backgroundIsDark">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <img *ngIf="logo" [src]="logo" alt="Logo" />
+      <h1 class="title">{{ title }}</h1>
+      <h2 class="subtitle">{{ subtitle }}</h2>
+    </div>
+  </div>
+</section>
+<section class="section" *ngIf="errorMessage">
+  <div class="container">
+    <div class="notification is-danger">
+      {{ errorMessage }}
+    </div>
+  </div>
+</section>
+<app-tiles-view [killmails]="killmails | async"></app-tiles-view>

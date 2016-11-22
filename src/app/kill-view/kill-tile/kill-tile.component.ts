@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
-import { Killmail } from '../z-killboard';
-import { SolarSystemService, TypeInformationService } from '../esi';
+import { Killmail } from '../../z-killboard';
+import { SolarSystemService, TypeInformationService } from '../../esi';
 
 @Component({
-  selector: 'app-kill',
-  templateUrl: './kill.component.html',
-  styleUrls: ['./kill.component.scss']
+  selector: 'app-kill-tile',
+  templateUrl: './kill-tile.component.html',
+  styleUrls: ['./kill-tile.component.scss']
 })
-export class KillComponent implements OnInit {
+export class KillTileComponent implements OnInit {
   @Input() killmail: Killmail;
 
   constructor(

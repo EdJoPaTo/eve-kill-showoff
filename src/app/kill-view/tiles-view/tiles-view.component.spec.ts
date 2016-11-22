@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { KillComponent } from './kill.component';
+import { TilesViewComponent } from './tiles-view.component';
 
-describe('KillComponent', () => {
-  let component: KillComponent;
-  let fixture: ComponentFixture<KillComponent>;
+describe('TilesViewComponent', () => {
+  let component: TilesViewComponent;
+  let fixture: ComponentFixture<TilesViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KillComponent ]
+      declarations: [ TilesViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KillComponent);
+    fixture = TestBed.createComponent(TilesViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

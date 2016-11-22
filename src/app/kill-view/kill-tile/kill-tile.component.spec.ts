@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { KillListComponent } from './kill-list.component';
+import { KillTileComponent } from './kill-tile.component';
 
-describe('KillListComponent', () => {
-  let component: KillListComponent;
-  let fixture: ComponentFixture<KillListComponent>;
+describe('KillTileComponent', () => {
+  let component: KillTileComponent;
+  let fixture: ComponentFixture<KillTileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KillListComponent ]
+      declarations: [ KillTileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KillListComponent);
+    fixture = TestBed.createComponent(KillTileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

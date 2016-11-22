@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="container">
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-6">
+        <app-kill-tile [killmail]="killmail" *ngFor="let killmail of killmails | modulo: 2: 0"></app-kill-tile>
+      </div>
+      <div class="tile is-vertical">
+        <app-kill-tile [killmail]="killmail" *ngFor="let killmail of killmails | modulo: 2: 1"></app-kill-tile>
+      </div>
+    </div>
+  </div>
+</section>
