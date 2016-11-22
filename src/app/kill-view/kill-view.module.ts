@@ -18,6 +18,7 @@ import { KillTileComponent } from './kill-tile/kill-tile.component';
 import { LasthitPipe } from './lasthit.pipe';
 import { TilesViewComponent } from './tiles-view/tiles-view.component';
 import { TopdamagePipe } from './topdamage.pipe';
+import { KillmailDatesPipe } from './killmail-dates.pipe';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { TopdamagePipe } from './topdamage.pipe';
   ],
   declarations: [
     KillFilterPipe,
+    KillmailDatesPipe,
     KillTileComponent,
     KillViewComponent,
     LasthitPipe,

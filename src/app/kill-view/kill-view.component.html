@@ -6,6 +6,18 @@
       <h2 class="subtitle">{{ subtitle }}</h2>
     </div>
   </div>
+  <div class="hero-foot">
+   <nav class="tabs is-boxed is-fullwidth">
+     <div class="container">
+       <ul>
+         <li routerLink="/current" routerLinkActive="is-active"><a routerLink="/current">Current Month</a></li>
+         <li *ngFor="let date of killmails | async | killmailDates: true" [routerLink]="'/'+ date.year + '/' + date.month" routerLinkActive="is-active">
+           <a [routerLink]="'/'+ date.year + '/' + date.month">{{ date.monthName }} {{ date.year }}</a>
+         </li>
+       </ul>
+     </div>
+   </nav>
+ </div>
 </section>
 <section class="section" *ngIf="errorMessage">
   <div class="container">

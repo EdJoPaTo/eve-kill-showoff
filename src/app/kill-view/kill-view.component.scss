@@ -19,10 +19,16 @@
   }
 
   &.background-is-dark {
+    li a,
     .subtitle,
     .title {
       color: white;
       text-shadow: 0 0 10px black;
+    }
+
+    li:hover a, li.is-active a {
+      color: black;
+      text-shadow: none;
     }
   }
 }
