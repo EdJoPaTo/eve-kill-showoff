@@ -18,7 +18,6 @@ export class KillTileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('killmail', this.killmail);
   }
 
   typeName(id: number): Observable<string> {
