@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 import { Killmail } from '../z-killboard';
-import { SolarSystemService } from '../solar-system.service';
-import { TypeInformationService } from '../type-information.service';
+import { SolarSystemService, TypeInformationService } from '../esi';
 
 @Component({
   selector: 'app-kill',
