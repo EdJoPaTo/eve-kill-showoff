@@ -47,7 +47,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
       .flatMap(ids => ids)
       .flatMap(id => this.killmailService.get(id))
       .reduce((sum, add) => sum.concat(add), [])
-      .map(list => { list.sort((a, b) => new Date(b.killTime) - new Date(a.killTime)); return list; })
+      .map(list => { list.sort((a, b) => new Date(b.killTime) > new Date(a.killTime)); return list; })
       .share();
 
     this.killmails
