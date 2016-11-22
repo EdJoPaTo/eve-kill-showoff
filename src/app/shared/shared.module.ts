@@ -16,7 +16,7 @@ import { ShortnumberPipe } from './shortnumber.pipe';
   ],
   providers: [
     ConfigService
-  ]
+  ],
   exports: [
     ModuloPipe,
     ShortnumberPipe
