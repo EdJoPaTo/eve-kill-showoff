@@ -1,0 +1,9 @@
+{
+  "hero": {
+    "logo": "//imageserver.eveonline.com/Corporation/98473977_256.png",
+    "title": "EVE Kill Showoff",
+    "subtitle": "Just some kills you might wanna see",
+    "backgroundImage": "url(/assets/header.jpg)",
+    "backgroundIsDark": true
+  }
+}

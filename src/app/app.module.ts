@@ -7,6 +7,7 @@ import { EsiModule } from './esi';
 import { SharedModule } from './shared';
 import { ZKillboardModule } from './z-killboard';
 
+import { ConfigService } from './config.service';
 import { LoadKillsService } from './load-kills.service';
 
 import { AppComponent } from './app.component';
@@ -32,6 +33,7 @@ import { TopdamagePipe } from './topdamage.pipe';
     ZKillboardModule
   ],
   providers: [
+    ConfigService,
     LoadKillsService
   ],
   bootstrap: [AppComponent]

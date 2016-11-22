@@ -1,0 +1,28 @@
+.hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.hero-body img {
+  margin-bottom: 1em;
+  width: 15vw;
+  min-width: 64px;
+  max-width: 256px;
+}
+
+.hero[style] {
+  .subtitle,
+  .title {
+    color: black;
+    text-shadow: 0 0 10px white;
+  }
+
+  &.background-is-dark {
+    .subtitle,
+    .title {
+      color: white;
+      text-shadow: 0 0 10px black;
+    }
+  }
+}

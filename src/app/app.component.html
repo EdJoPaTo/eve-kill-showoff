@@ -1,8 +1,9 @@
-<section class="hero is-medium">
+<section class="hero is-medium" [class.is-large]="background && !logo" [style.background-image]="background" [class.background-is-dark]="background && backgroundIsDark">
   <div class="hero-body">
     <div class="container has-text-centered">
-      <h1 class="title">EVE Kill Showoff</h1>
-      <h2 class="subtitle">Just some kills you might wanna see</h2>
+      <img *ngIf="logo" [src]="logo" alt="Logo" />
+      <h1 class="title">{{ title }}</h1>
+      <h2 class="subtitle">{{ subtitle }}</h2>
     </div>
   </div>
 </section>
