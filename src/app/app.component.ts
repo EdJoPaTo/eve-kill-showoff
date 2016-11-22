@@ -12,6 +12,7 @@ import { LoadKillsService } from './load-kills.service';
 export class AppComponent implements OnInit {
   private killIds: Observable<number[]>;
   private killmails: Observable<Killmail>;
+  private errorMessage: string = '';
 
   constructor(
     private killmailService: KillmailService,
@@ -26,5 +27,8 @@ export class AppComponent implements OnInit {
       .flatMap(id => this.killmailService.get(id))
       .reduce((sum, add) => sum.concat(add), [])
       .share();
+
+    this.killmails
+    .subscribe(kills => {}, error => this.errorMessage = 'There was a problem optaining kill information from zKillboard!');
   }
 }
