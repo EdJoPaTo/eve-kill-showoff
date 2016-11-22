@@ -11,8 +11,10 @@ This page want to show kills by a simple list of kill ids instead of grabbing th
 
 - Download the dist.zip from the current [Release](https://github.com/EdJoPaTo/eve-kill-showoff/releases).
 - Host the files on your webserver (nginx does that pretty well for static content).
+- modify `assets/config.json` with your own settings (title, logo, background)
+  - `hero.kills` has to return a json array of kill IDs such as `/assets/kills.json`.
 - modify `assets/kills.json` with your own kill ids to show.
-  - Tip: The list (json) can easily be edited from scripts.
+  - Tip: The list (json) can easily be edited from scripts or changed to an own webserver.
 
 ## Thanks to
 
