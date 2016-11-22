@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import { KillmailService, Killmail } from './z-killboard';
 import { LoadKillsService } from './load-kills.service';
@@ -9,7 +10,8 @@ import { LoadKillsService } from './load-kills.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  private killmails: Killmail[] = [];
+  private killIds: Observable<number[]>;
+  private killmails: Observable<Killmail>;
 
   constructor(
     private killmailService: KillmailService,
@@ -17,10 +19,12 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadKillsService.get()
+    this.killIds = this.loadKillsService.get();
+
+    this.killmails = this.killIds
       .flatMap(ids => ids)
       .flatMap(id => this.killmailService.get(id))
       .reduce((sum, add) => sum.concat(add), [])
-      .subscribe(killmails => this.killmails = killmails);
+      .share();
   }
 }

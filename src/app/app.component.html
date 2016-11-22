@@ -6,7 +6,7 @@
     </div>
   </div>
 </section>
-<app-kill-list [killmails]="killmails"></app-kill-list>
+<app-kill-list [killmails]="killmails | async"></app-kill-list>
 <footer class="footer">
   <div class="container has-text-centered">
     <p>
