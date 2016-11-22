@@ -34,7 +34,8 @@ export class AppComponent implements OnInit {
     this.configService.getHeroBackgroundImage().subscribe(image => this.background = image);
     this.configService.getHeroBackgroundIsDark().subscribe(bool => this.backgroundIsDark = bool);
 
-    this.killIds = this.loadKillsService.get();
+    this.killIds = this.configService.getKillsUrl()
+      .flatMap(url => this.loadKillsService.get(url));
 
     this.killmails = this.killIds
       .flatMap(ids => ids)

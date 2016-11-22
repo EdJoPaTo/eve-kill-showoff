@@ -29,4 +29,6 @@ export class ConfigService {
   getHeroSubtitle(): Observable<string> { return this.get().map(o => o.hero.subtitle); }
   getHeroBackgroundImage(): Observable<string> { return this.get().map(o => o.hero.backgroundImage); }
   getHeroBackgroundIsDark(): Observable<boolean> { return this.get().map(o => o.hero.backgroundIsDark); }
+
+  getKillsUrl(): Observable<string> { return this.get().map(o => o.kills); }
 }

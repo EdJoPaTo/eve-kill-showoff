@@ -10,11 +10,11 @@ export class LoadKillsService {
     private http: Http
   ) { }
 
-  get(): Observable<number[]> {
+  get(url: string): Observable<number[]> {
     if (!this.cache) {
       this.cache = new ReplaySubject<number[]>(1);
       this.http
-        .get(`/assets/kills.json`)
+        .get(url)
         .map((r: Response) => r.json())
         .subscribe(data => this.cache.next(data),
         err => this.cache.error(err),

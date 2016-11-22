@@ -5,5 +5,6 @@
     "subtitle": "Just some kills you might wanna see",
     "backgroundImage": "url(/assets/header.jpg)",
     "backgroundIsDark": true
-  }
+  },
+  "kills": "/assets/kills.json"
 }
