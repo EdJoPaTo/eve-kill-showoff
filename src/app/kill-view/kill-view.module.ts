@@ -13,6 +13,7 @@ import { ZKillboardModule } from '../z-killboard';
 
 import { LoadKillsService } from './load-kills.service';
 
+import { KillFilterPipe } from './kill-filter.pipe';
 import { KillTileComponent } from './kill-tile/kill-tile.component';
 import { LasthitPipe } from './lasthit.pipe';
 import { TilesViewComponent } from './tiles-view/tiles-view.component';
@@ -29,6 +30,7 @@ import { TopdamagePipe } from './topdamage.pipe';
     ZKillboardModule
   ],
   declarations: [
+    KillFilterPipe,
     KillTileComponent,
     KillViewComponent,
     LasthitPipe,

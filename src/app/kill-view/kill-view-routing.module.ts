@@ -4,7 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { KillViewComponent } from './kill-view.component';
 
 const routes: Routes = [
-  { path: '', component: KillViewComponent }
+  { path: 'current', component: KillViewComponent },
+  { path: ':year/:month', component: KillViewComponent },
+  { path: '**', redirectTo: 'current' }
 ];
 
 @NgModule({

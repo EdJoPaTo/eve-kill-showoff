@@ -14,4 +14,4 @@
     </div>
   </div>
 </section>
-<app-tiles-view [killmails]="killmails | async"></app-tiles-view>
+<app-tiles-view [killmails]="killmails | async | killFilter: year: month"></app-tiles-view>
