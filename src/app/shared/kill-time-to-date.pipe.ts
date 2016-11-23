@@ -19,7 +19,7 @@ export class KillTimeToDatePipe implements PipeTransform {
   }
 
   transform(killTime: string): Date {
-    return this.toDate(killTime);
+    return KillTimeToDatePipe.toDate(killTime);
   }
 
 }
