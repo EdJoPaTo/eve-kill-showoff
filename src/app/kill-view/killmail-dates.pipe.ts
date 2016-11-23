@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 import { Killmail } from '../z-killboard';
+import { KillTimeToDatePipe } from '../shared';
 
 const monthNames = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec' ];
 
@@ -12,7 +13,7 @@ export class KillmailDatesPipe implements PipeTransform {
   transform(value: Killmail[], excludeCurrentMonth = false): any[] {
     if (!value) { return []; }
 
-    let dates = value.map(o => new Date(o.killTime + ' UTC'));
+    let dates = value.map(o => KillTimeToDatePipe.toDate(o.killTime));
     let result = [];
 
     for (let i = 0; i < dates.length; i++) {
