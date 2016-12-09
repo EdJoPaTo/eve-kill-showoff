@@ -12,19 +12,19 @@ import { LoadKillsService } from './load-kills.service';
   styleUrls: ['./kill-view.component.scss']
 })
 export class KillViewComponent implements OnInit, OnDestroy {
-  private logo = '';
-  private title = '';
-  private subtitle = '';
-  private background = '';
-  private backgroundIsDark = false;
+  logo = '';
+  title = '';
+  subtitle = '';
+  background = '';
+  backgroundIsDark = false;
 
   private sub: Subscription;
-  private year: number;
-  private month: number;
+  year: number;
+  month: number;
 
   private killIds: Observable<number[]>;
-  private killmails: Observable<Killmail>;
-  private errorMessage: string = '';
+  killmails: Observable<Killmail>;
+  errorMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
