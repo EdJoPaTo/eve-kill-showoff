@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { ConfigService } from './config.service';
 
 import { KillTimeToDatePipe } from './kill-time-to-date.pipe';
-import { ModuloPipe } from './modulo.pipe';
 import { ShortnumberPipe } from './shortnumber.pipe';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { ShortnumberPipe } from './shortnumber.pipe';
   ],
   declarations: [
     KillTimeToDatePipe,
-    ModuloPipe,
     ShortnumberPipe
   ],
   providers: [
@@ -21,7 +19,6 @@ import { ShortnumberPipe } from './shortnumber.pipe';
   ],
   exports: [
     KillTimeToDatePipe,
-    ModuloPipe,
     ShortnumberPipe
   ]
 })
