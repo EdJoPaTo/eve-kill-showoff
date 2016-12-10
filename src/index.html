@@ -19,11 +19,40 @@
     body {
       height: 100%;
       width: 100%;
+      margin: 0;
+      padding: 0;
       -webkit-text-size-adjust: 100%;
     }
+
+    .initialloading {
+      display: table;
+      width: 100%;
+      height: 100%;
+    }
+
+    .initialloading div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 6vmin;
+    }
+
+    .initialloading img {
+      width: 35vmin;
+      height: 35vmin;
+    }
+
   </style>
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <div class="initialloading">
+      <div>
+        <img alt="logo" src="//imageserver.eveonline.com/Corporation/98473977_256.png" />
+        <br /> Brace yourself!
+        <br /> Something epic is loading...
+      </div>
+    </div>
+  </app-root>
 </body>
 </html>
