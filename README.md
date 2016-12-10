@@ -19,7 +19,7 @@ This page want to show kills by a simple list of kill ids instead of grabbing th
     }
     ```
 
-  - Apache 2.2.16 and higher: Add `FallbackResource /index.html` to the config ([FallbackResource](https://httpd.apache.org/docs/2.2/mod/mod_dir.html#fallbackresource)) or the `htaccess` file in the same folder besides the `index.html`.
+  - Apache 2.2.16 and higher: Add `FallbackResource /index.html` ([FallbackResource](https://httpd.apache.org/docs/2.2/mod/mod_dir.html#fallbackresource)) to the config or the `htaccess` file in the same folder besides the `index.html`.
 
     - If that does not work (had one case, don't now why, the documentation said the version is 2.4), use this rules instead:
 
