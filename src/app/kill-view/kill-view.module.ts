@@ -14,11 +14,12 @@ import { ZKillboardModule } from '../z-killboard';
 import { LoadKillsService } from './load-kills.service';
 
 import { KillFilterPipe } from './kill-filter.pipe';
+import { KillmailDatesPipe } from './killmail-dates.pipe';
+import { KillmailViewComponent } from './killmail-view/killmail-view.component';
 import { KillTileComponent } from './kill-tile/kill-tile.component';
 import { LasthitPipe } from './lasthit.pipe';
 import { TilesViewComponent } from './tiles-view/tiles-view.component';
 import { TopdamagePipe } from './topdamage.pipe';
-import { KillmailDatesPipe } from './killmail-dates.pipe';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { KillmailDatesPipe } from './killmail-dates.pipe';
   declarations: [
     KillFilterPipe,
     KillmailDatesPipe,
+    KillmailViewComponent,
     KillTileComponent,
     KillViewComponent,
     LasthitPipe,
