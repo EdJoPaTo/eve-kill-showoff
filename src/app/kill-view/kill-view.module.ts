@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
 
-
 import { KillViewComponent } from './kill-view.component';
 
 import { EsiModule } from '../esi';
@@ -21,6 +20,7 @@ import { KillTileComponent } from './kill-tile/kill-tile.component';
 import { LasthitPipe } from './lasthit.pipe';
 import { TilesViewComponent } from './tiles-view/tiles-view.component';
 import { TopdamagePipe } from './topdamage.pipe';
+import { TopPilotsPipe } from './killmail-view/top-pilots.pipe';
 
 @NgModule({
   imports: [
@@ -41,7 +41,8 @@ import { TopdamagePipe } from './topdamage.pipe';
     KillViewComponent,
     LasthitPipe,
     TilesViewComponent,
-    TopdamagePipe
+    TopdamagePipe,
+    TopPilotsPipe
   ],
   providers: [
     LoadKillsService

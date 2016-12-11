@@ -18,6 +18,16 @@
         <p class="title">{{ iskDestroyed | shortnumber }}</p>
       </div>
     </nav>
+    <nav class="level" id="top-pilots" *ngIf="(killmails | attacker | topPilots).length">
+      <div class="level-item has-text-centered" *ngFor="let pilot of killmails | attacker | topPilots">
+        <p class="heading">on {{ pilot.count }} kills</p>
+        <a target="_blank" [href]="'https://zkillboard.com/character/'+ pilot.id +'/'">
+          <img class="is-hidden-mobile image is-64x64" [alt]="pilot.name" [src]="'https://imageserver.eveonline.com/Character/'+ pilot.id +'_128.jpg'" />
+          <br class="is-hidden-mobile" />
+          <p class="title">{{ pilot.name }}</p>
+        </a>
+      </div>
+    </nav>
     <app-tiles-view [killmails]="killmails"></app-tiles-view>
   </div>
 </section>
