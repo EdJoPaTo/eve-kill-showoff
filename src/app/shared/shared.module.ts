@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ConfigService } from './config.service';
 
+import { DistinctPipe } from './distinct.pipe';
 import { KillTimeToDatePipe } from './kill-time-to-date.pipe';
 import { ShortnumberPipe } from './shortnumber.pipe';
 
@@ -11,6 +12,7 @@ import { ShortnumberPipe } from './shortnumber.pipe';
     CommonModule
   ],
   declarations: [
+    DistinctPipe,
     KillTimeToDatePipe,
     ShortnumberPipe
   ],
@@ -18,6 +20,7 @@ import { ShortnumberPipe } from './shortnumber.pipe';
     ConfigService
   ],
   exports: [
+    DistinctPipe,
     KillTimeToDatePipe,
     ShortnumberPipe
   ]

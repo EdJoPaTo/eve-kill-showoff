@@ -13,6 +13,7 @@ import { ZKillboardModule } from '../z-killboard';
 
 import { LoadKillsService } from './load-kills.service';
 
+import { AttackerPipe } from './killmail-view/attacker.pipe';
 import { KillFilterPipe } from './kill-filter.pipe';
 import { KillmailDatesPipe } from './killmail-dates.pipe';
 import { KillmailViewComponent } from './killmail-view/killmail-view.component';
@@ -32,6 +33,7 @@ import { TopdamagePipe } from './topdamage.pipe';
     ZKillboardModule
   ],
   declarations: [
+    AttackerPipe,
     KillFilterPipe,
     KillmailDatesPipe,
     KillmailViewComponent,

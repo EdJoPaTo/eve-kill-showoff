@@ -11,7 +11,7 @@
       </div>
       <div class="level-item has-text-centered">
         <p class="heading">Pilots involved</p>
-        <p class="title">{{ pilotsInvolved | shortnumber: true }}</p>
+        <p class="title">{{ (killmails | attacker: 'characterID' | distinct).length | shortnumber: true }}</p>
       </div>
       <div class="level-item has-text-centered">
         <p class="heading">ISK destroyed</p>
