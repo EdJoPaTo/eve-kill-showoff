@@ -1,5 +1,23 @@
 <section class="section">
   <div class="container">
+    <nav class="level" *ngIf="killmails && killmails.length > 0">
+      <div class="level-item has-text-centered">
+        <p class="heading">Damage dealt</p>
+        <p class="title">{{ damageDealt | shortnumber: true }}</p>
+      </div>
+      <div class="level-item has-text-centered">
+        <p class="heading">Kills</p>
+        <p class="title">{{ killmails.length }}</p>
+      </div>
+      <div class="level-item has-text-centered">
+        <p class="heading">Pilots involved</p>
+        <p class="title">{{ pilotsInvolved | shortnumber: true }}</p>
+      </div>
+      <div class="level-item has-text-centered">
+        <p class="heading">ISK destroyed</p>
+        <p class="title">{{ iskDestroyed | shortnumber }}</p>
+      </div>
+    </nav>
     <app-tiles-view [killmails]="killmails"></app-tiles-view>
   </div>
 </section>
