@@ -11,7 +11,7 @@
       <div class="container">
         <ul>
           <li routerLink="/current" routerLinkActive="is-active"><a routerLink="/current">Current Month</a></li>
-          <li *ngFor="let date of killmails | async | killmailDates: true" [routerLink]="'/'+ date.year + '/' + date.month" routerLinkActive="is-active">
+          <li *ngFor="let date of killmails | killmailDates: true" [routerLink]="'/'+ date.year + '/' + date.month" routerLinkActive="is-active">
             <a [routerLink]="'/'+ date.year + '/' + date.month">{{ date.monthName }} {{ date.year }}</a>
           </li>
         </ul>
@@ -26,4 +26,4 @@
     </div>
   </div>
 </section>
-<app-killmail-view [killmails]="killmails | async | killFilter: year: month"></app-killmail-view>
+<app-killmail-view [killmails]="killmails | killFilter: year: month"></app-killmail-view>

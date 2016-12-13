@@ -23,7 +23,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
   month: number;
 
   private killIds: Observable<number[]>;
-  killmails: Observable<Killmail>;
+  killmails: Killmail[] = [];
   errorMessage: string = '';
 
   constructor(
@@ -43,18 +43,17 @@ export class KillViewComponent implements OnInit, OnDestroy {
     this.killIds = this.configService.getKillsUrl()
       .flatMap(url => this.loadKillsService.get(url));
 
-    this.killmails = this.killIds
-      .flatMap(ids => ids)
-      .flatMap(id => this.killmailService.get(id))
-      .reduce((sum, add) => sum.concat(add), [])
-      .map(list => {
+    this.killIds
+      .flatMap(ids => ids.reverse())
+      .concatMap(id => this.killmailService.get(id))
+      .subscribe(
+      kill => {
+        let list = this.killmails.concat(kill);
         list.sort((a, b) => Number(KillTimeToDatePipe.toDate(b.killTime)) - Number(KillTimeToDatePipe.toDate(a.killTime)));
-        return list;
-      })
-      .share();
-
-    this.killmails
-      .subscribe(kills => { }, error => this.errorMessage = 'There was a problem optaining kill information from zKillboard!');
+        this.killmails = list;
+      },
+      error => this.errorMessage = 'There was a problem optaining kill information from zKillboard!'
+      );
 
     this.sub = this.route.params.subscribe(params => {
       if (!params['year'] && !params['month']) {
