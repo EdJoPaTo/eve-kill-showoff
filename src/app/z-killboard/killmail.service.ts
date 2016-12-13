@@ -18,6 +18,7 @@ export class KillmailService {
       this.cache[id] = new ReplaySubject(1);
       this.http
         .get(`https://zkillboard.com/api/killID/${id}/`)
+        .retry(2)
         .map((r: Response) => r.json())
         .map(arr => arr[0])
         .subscribe(data => this.cache[id].next(data),
