@@ -52,7 +52,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
         list.sort((a, b) => Number(KillTimeToDatePipe.toDate(b.killTime)) - Number(KillTimeToDatePipe.toDate(a.killTime)));
         this.killmails = list;
       },
-      error => this.errorMessage = 'There was a problem optaining kill information from zKillboard!'
+      error => this.errorMessage = 'Could not load all kills. There was a problem optaining kill information from zKillboard!'
       );
 
     this.sub = this.route.params.subscribe(params => {
