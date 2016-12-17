@@ -28,6 +28,7 @@
         </a>
       </div>
     </nav>
-    <app-tiles-view [killmails]="killmails"></app-tiles-view>
+    <app-tiles-view *ngIf="!listview" [killmails]="killmails"></app-tiles-view>
+    <app-list-view *ngIf="listview" [killmails]="killmails"></app-list-view>
   </div>
 </section>

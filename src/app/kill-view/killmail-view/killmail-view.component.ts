@@ -9,6 +9,7 @@ import { Killmail } from '../../z-killboard';
 })
 export class KillmailViewComponent implements OnInit, DoCheck {
   @Input() killmails: Killmail[];
+  @Input() listview: boolean = false;
   damageDealt: number = 0;
   iskDestroyed: number = 0;
 

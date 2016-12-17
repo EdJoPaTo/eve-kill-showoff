@@ -26,4 +26,24 @@
     </div>
   </div>
 </section>
-<app-killmail-view [killmails]="killmails | killFilter: year: month"></app-killmail-view>
+<section class="section options-section">
+  <div class="container">
+    <nav class="level">
+      <div class="level-left">
+      </div>
+      <div class="level-right">
+        <div class="tabs is-toggle">
+          <ul>
+            <li [class.is-active]="view === 'tiles'">
+              <a (click)="view = 'tiles'">Tiles</a>
+            </li>
+            <li [class.is-active]="view === 'list'">
+              <a (click)="view = 'list'">List</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+<app-killmail-view [killmails]="killmails | killFilter: year: month" [listview]="view === 'list'"></app-killmail-view>

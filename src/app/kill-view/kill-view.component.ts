@@ -22,6 +22,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
   year: number;
   month: number;
 
+  view: string = 'tiles';
   private killIds: Observable<number[]>;
   killmails: Killmail[] = [];
   errorMessage: string = '';

@@ -18,6 +18,7 @@ import { KillmailDatesPipe } from './killmail-dates.pipe';
 import { KillmailViewComponent } from './killmail-view/killmail-view.component';
 import { KillTileComponent } from './kill-tile/kill-tile.component';
 import { LasthitPipe } from './lasthit.pipe';
+import { ListViewComponent } from './list-view/list-view.component';
 import { TilesViewComponent } from './tiles-view/tiles-view.component';
 import { TopdamagePipe } from './topdamage.pipe';
 import { TopPilotsPipe } from './killmail-view/top-pilots.pipe';
@@ -40,6 +41,7 @@ import { TopPilotsPipe } from './killmail-view/top-pilots.pipe';
     KillTileComponent,
     KillViewComponent,
     LasthitPipe,
+    ListViewComponent,
     TilesViewComponent,
     TopdamagePipe,
     TopPilotsPipe

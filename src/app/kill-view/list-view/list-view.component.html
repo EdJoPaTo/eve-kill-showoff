@@ -1,0 +1,41 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th> Date </th>
+      <th class="is-hidden-mobile"> </th>
+      <th> Victim </th>
+      <th class="has-text-right"> Involved Pilots </th>
+      <th class="has-text-right"> ISK destroyed </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let killmail of killmails">
+      <td>
+        <a target="_blank" [href]="'//zkillboard.com/kill/'+ killmail.killID +'/'">
+          {{ killmail.killTime }}
+        </a>
+      </td>
+      <td class="is-hidden-mobile">
+        <a target="_blank" [href]="'//zkillboard.com/kill/'+ killmail.killID +'/'">
+          <img class="image is-48x48" alt="preview" [src]="'http://imageserver.eveonline.com/Render/'+ killmail.victim.shipTypeID +'_512.png'" />
+        </a>
+      </td>
+      <td>
+        <span *ngIf="killmail.victim.characterID"><a [href]="'https://zkillboard.com/character/'+ killmail.victim.characterID +'/'" target="_blank">{{ killmail.victim.characterName }}</a> (</span>{{ typeName(killmail.victim.shipTypeID) | async }}<span *ngIf="killmail.victim.characterID">)</span>
+        <br />
+        <span *ngIf="killmail.victim.corporationID">
+          <a [href]="'https://zkillboard.com/corporation/'+ killmail.victim.corporationID +'/'" target="_blank">{{ killmail.victim.corporationName }}</a>
+        </span>
+        <span *ngIf="killmail.victim.allianceID">/
+          <a [href]="'https://zkillboard.com/alliance/'+ killmail.victim.allianceID +'/'" target="_blank">{{ killmail.victim.allianceName }}</a>
+        </span>
+      </td>
+      <td class="has-text-right">
+        {{ killmail.attackers.length | shortnumber: true }}
+      </td>
+      <td class="has-text-right">
+        {{ killmail.zkb.totalValue | shortnumber }} ISK
+      </td>
+    </tr>
+  </tbody>
+</table>
