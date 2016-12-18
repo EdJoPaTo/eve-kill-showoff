@@ -24,6 +24,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
 
   view: string = 'tiles';
   private killIds: Observable<number[]>;
+  totalIds: number = 0;
   killmails: Killmail[] = [];
   errorMessage: string = '';
 
@@ -44,6 +45,8 @@ export class KillViewComponent implements OnInit, OnDestroy {
 
     this.killIds = this.configService.getKillsUrl()
       .flatMap(url => this.loadKillsService.get(url));
+
+    this.killIds.subscribe(ids => this.totalIds = ids.length);
 
     this.killIds
       .flatMap(ids => { ids.sort(); return ids.reverse(); })

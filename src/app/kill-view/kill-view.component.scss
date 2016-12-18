@@ -32,3 +32,13 @@
     }
   }
 }
+
+.level-item.progress {
+  width: 600px;
+  max-width: 100%;
+}
+
+.fadeout {
+  opacity: 0;
+  transition: opacity 2s linear;
+}
