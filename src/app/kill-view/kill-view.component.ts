@@ -46,7 +46,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
       .flatMap(url => this.loadKillsService.get(url));
 
     this.killIds
-      .flatMap(ids => ids.reverse())
+      .flatMap(ids => { ids.sort(); return ids.reverse(); })
       .concatMap(id => this.killmailService.get(id))
       .subscribe(
       kill => {
