@@ -26,7 +26,7 @@
     </div>
   </div>
 </section>
-<section class="section options-section">
+<section class="section">
   <div class="container">
     <nav class="level">
       <div class="level-left">
@@ -44,6 +44,6 @@
         </div>
       </div>
     </nav>
+    <app-killmail-view [killmails]="killmails | killFilter: year: month" [listview]="view === 'list'"></app-killmail-view>
   </div>
 </section>
-<app-killmail-view [killmails]="killmails | killFilter: year: month" [listview]="view === 'list'"></app-killmail-view>
