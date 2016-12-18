@@ -4,8 +4,8 @@
       <th> Date </th>
       <th class="is-hidden-mobile"> </th>
       <th> Victim </th>
-      <th class="has-text-right"> Involved Pilots </th>
-      <th class="has-text-right"> ISK destroyed </th>
+      <th class="has-text-right is-hidden-mobile"> Involved<span class="is-hidden-touch"> Pilots</span> </th>
+      <th class="has-text-right"> <span class="is-hidden-touch">ISK </span>Destroyed </th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +30,7 @@
           <a [href]="'https://zkillboard.com/alliance/'+ killmail.victim.allianceID +'/'" target="_blank">{{ killmail.victim.allianceName }}</a>
         </span>
       </td>
-      <td class="has-text-right">
+      <td class="has-text-right is-hidden-mobile">
         {{ killmail.attackers.length | shortnumber: true }}
       </td>
       <td class="has-text-right">
