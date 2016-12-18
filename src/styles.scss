@@ -1,3 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "node_modules/bulma/bulma.sass";
+
+table thead th.has-text-right {
+  // workaround https://github.com/jgthms/bulma/issues/293
+  text-align: right;
+}
