@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs/Rx';
 
 import { ConfigService, KillTimeToDatePipe } from '../shared';
@@ -29,6 +29,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private configService: ConfigService,
     private killmailService: KillmailService,
     private loadKillsService: LoadKillsService
@@ -65,10 +66,35 @@ export class KillViewComponent implements OnInit, OnDestroy {
         this.year = Number(params['year']);
         this.month = Number(params['month']);
       }
+
+      this.view = params['view'] === 'list' ? 'list' : 'tiles';
     });
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  isCurrentMonth(): boolean {
+    let today = new Date();
+    return this.year === today.getUTCFullYear() && this.month === today.getUTCMonth() + 1;
+  }
+
+  goToCurrentMonth(): void {
+    let today = new Date();
+    this.year = today.getUTCFullYear();
+    this.month = today.getUTCMonth() + 1;
+    this.updateUrl();
+  }
+
+  updateUrl() {
+    let params: any = {};
+    let monthSelectorPart = '';
+
+    if (!this.isCurrentMonth()) {
+      monthSelectorPart = '/' + this.year + '/' + this.month;
+    }
+
+    this.router.navigate(['/' + this.view + monthSelectorPart, params]);
   }
 }

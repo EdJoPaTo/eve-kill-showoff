@@ -10,9 +10,9 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
-          <li routerLink="/current" routerLinkActive="is-active"><a routerLink="/current">Current Month</a></li>
-          <li *ngFor="let date of killmails | killmailDates: true" [routerLink]="'/'+ date.year + '/' + date.month" routerLinkActive="is-active">
-            <a [routerLink]="'/'+ date.year + '/' + date.month">{{ date.monthName }} {{ date.year }}</a>
+          <li [class.is-active]="isCurrentMonth()"><a (click)="goToCurrentMonth()">Current Month</a></li>
+          <li *ngFor="let date of killmails | killmailDates: true" [class.is-active]="date.year === year && date.month === month">
+            <a (click)="year = date.year; month = date.month; updateUrl()">{{ date.monthName }} {{ date.year }}</a>
           </li>
         </ul>
       </div>
@@ -35,10 +35,10 @@
         <div class="tabs is-toggle">
           <ul>
             <li [class.is-active]="view === 'tiles'">
-              <a (click)="view = 'tiles'">Tiles</a>
+              <a (click)="view = 'tiles'; updateUrl()">Tiles</a>
             </li>
             <li [class.is-active]="view === 'list'">
-              <a (click)="view = 'list'">List</a>
+              <a (click)="view ='list'; updateUrl()">List</a>
             </li>
           </ul>
         </div>
