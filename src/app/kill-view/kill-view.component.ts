@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs/Rx';
+import { Observable, Subject, Subscription } from 'rxjs/Rx';
 
 import { ConfigService, KillTimeToDatePipe } from '../shared';
 import { KillmailService, Killmail } from '../z-killboard';
 import { LoadKillsService } from './load-kills.service';
+import { SearchService } from '../esi';
 
 @Component({
   selector: 'app-kill-view',
@@ -22,6 +23,8 @@ export class KillViewComponent implements OnInit, OnDestroy {
   year: number;
   month: number;
 
+  filterSubject = new Subject<string>();
+  filter: any;
   view: string = 'tiles';
   private killIds: Observable<number[]>;
   totalIds: number = 0;
@@ -33,7 +36,8 @@ export class KillViewComponent implements OnInit, OnDestroy {
     private router: Router,
     private configService: ConfigService,
     private killmailService: KillmailService,
-    private loadKillsService: LoadKillsService
+    private loadKillsService: LoadKillsService,
+    private searchService: SearchService
   ) { }
 
   ngOnInit() {
@@ -59,6 +63,14 @@ export class KillViewComponent implements OnInit, OnDestroy {
       },
       error => this.errorMessage = 'Could not load all kills. There was a problem obtaining kill information from zKillboard!'
       );
+
+    this.filterSubject
+      .debounceTime(300) // wait for 300ms pause in events
+      .map(content => content.toLowerCase().trim())
+      .distinctUntilChanged() // ignore if next search term is same as previous
+      .flatMap(term => this.searchService.search(term, ['alliance', 'character', 'corporation', 'inventorytype', 'solarsystem'])
+        .map(result => { console.log('filter', term, result); return result; }))
+      .subscribe(filter => this.filter = filter);
 
     this.sub = this.route.params.subscribe(params => {
       if (!params['year'] && !params['month']) {

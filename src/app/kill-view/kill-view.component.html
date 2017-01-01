@@ -31,6 +31,11 @@
     <progress class="progress" [class.is-success]="!errorMessage" [class.is-danger]="errorMessage" [max]="totalIds" [value]="killmails.length" [class.fadeout]="totalIds === killmails.length"></progress>
     <nav class="level">
       <div class="level-left">
+        <div class="level-item">
+          <p class="control">
+            <input type="search" placeholder="filter…" #filterBox id="filter-box" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" (keyup)="filterSubject.next(filterBox.value)" />
+          </p>
+        </div>
       </div>
       <div class="level-right">
         <div class="level-item">
@@ -47,6 +52,6 @@
         </div>
       </div>
     </nav>
-    <app-killmail-view [killmails]="killmails | killFilter: year: month" [listview]="view === 'list'"></app-killmail-view>
+    <app-killmail-view [killmails]="killmails | killFilter: year: month: filter" [listview]="view === 'list'"></app-killmail-view>
   </div>
 </section>
