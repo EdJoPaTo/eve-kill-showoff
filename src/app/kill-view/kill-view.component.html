@@ -28,9 +28,9 @@
 </section>
 <section class="section">
   <div class="container">
+    <progress class="progress" [class.is-success]="!errorMessage" [class.is-danger]="errorMessage" [max]="totalIds" [value]="killmails.length" [class.fadeout]="totalIds === killmails.length"></progress>
     <nav class="level">
       <div class="level-left">
-        <progress class="progress level-item" [class.is-success]="!errorMessage" [class.is-danger]="errorMessage" [max]="totalIds" [value]="killmails.length" [class.fadeout]="totalIds === killmails.length"></progress>
       </div>
       <div class="level-right">
         <div class="level-item">
