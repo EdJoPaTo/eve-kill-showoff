@@ -29,29 +29,15 @@
 <section class="section">
   <div class="container">
     <progress class="progress" [class.is-success]="!errorMessage" [class.is-danger]="errorMessage" [max]="totalIds" [value]="killmails.length" [class.fadeout]="totalIds === killmails.length"></progress>
-    <nav class="level">
-      <div class="level-left">
-        <div class="level-item">
-          <p class="control">
-            <input type="search" placeholder="filter…" #filterBox id="filter-box" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" (keyup)="filterSubject.next(filterBox.value)" />
-          </p>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <div class="tabs is-toggle">
-            <ul>
-              <li [class.is-active]="view === 'tiles'">
-                <a (click)="view = 'tiles'; updateUrl()">Tiles</a>
-              </li>
-              <li [class.is-active]="view === 'list'">
-                <a (click)="view ='list'; updateUrl()">List</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <div class="control is-grouped">
+      <p class="control is-expanded">
+        <input class="input" type="search" placeholder="filter…" #filterBox id="filter-box" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" (keyup)="filterSubject.next(filterBox.value)" />
+      </p>
+      <p class="control has-addons">
+        <a class="button" [class.is-primary]="view === 'tiles'" (click)="view = 'tiles'; updateUrl()">Tiles</a>
+        <a class="button" [class.is-primary]="view === 'list'" (click)="view = 'list'; updateUrl()">List</a>
+      </p>
+    </div>
     <app-killmail-view [killmails]="killmails | killFilter: year: month: filter" [listview]="view === 'list'"></app-killmail-view>
   </div>
 </section>
