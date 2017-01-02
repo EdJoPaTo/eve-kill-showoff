@@ -28,7 +28,6 @@
 </section>
 <section class="section">
   <div class="container">
-    <progress class="progress" [class.is-success]="!errorMessage" [class.is-danger]="errorMessage" [max]="totalIds" [value]="killmails.length" [class.fadeout]="totalIds === killmails.length"></progress>
     <div class="control is-grouped">
       <p class="control is-expanded" [class.is-loading]="filterLoading">
         <input class="input" type="search" placeholder="filter…" #filterBox id="filter-box" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" (keyup)="filterSubject.next(filterBox.value)" />
@@ -38,6 +37,7 @@
         <a class="button" [class.is-primary]="view === 'list'" (click)="view = 'list'; updateUrl()">List</a>
       </p>
     </div>
+    <progress class="progress" [class.is-success]="!errorMessage" [class.is-danger]="errorMessage" [max]="totalIds" [value]="killmails.length" [class.fadeout]="totalIds === killmails.length"></progress>
     <app-killmail-view [killmails]="killmails | killFilter: year: month: filter" [listview]="view === 'list'"></app-killmail-view>
   </div>
 </section>
