@@ -75,7 +75,10 @@ export class KillViewComponent implements OnInit, OnDestroy {
       .flatMap(term => this.searchService.search(term, ['alliance', 'character', 'corporation', 'inventorytype', 'solarsystem'])
         .map(result => { console.log('filter', term, result); return result; }))
       .map(i => { this.filterLoading = false; return i; })
-      .subscribe(filter => this.filter = filter);
+      .subscribe(filter => this.filter = filter, error => {
+        this.errorMessage = 'Could not filter kills. There was a problem loading the needed information from ESI (EVE Swagger Interface).';
+        this.filterLoading = false;
+      });
 
     this.sub = this.route.params.subscribe(params => {
       if (!params['year'] && !params['month']) {
