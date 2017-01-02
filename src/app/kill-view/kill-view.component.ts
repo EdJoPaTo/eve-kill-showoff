@@ -24,6 +24,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
   month: number;
 
   filterSubject = new Subject<string>();
+  filterLoading: boolean = false;
   filter: any;
   view: string = 'tiles';
   private killIds: Observable<number[]>;
@@ -65,11 +66,15 @@ export class KillViewComponent implements OnInit, OnDestroy {
       );
 
     this.filterSubject
+      .map(i => { this.filterLoading = true; return i; })
       .debounceTime(300) // wait for 300ms pause in events
       .map(content => content.toLowerCase().trim())
+      .map(i => { this.filterLoading = false; return i; })
       .distinctUntilChanged() // ignore if next search term is same as previous
+      .map(i => { this.filterLoading = true; return i; })
       .flatMap(term => this.searchService.search(term, ['alliance', 'character', 'corporation', 'inventorytype', 'solarsystem'])
         .map(result => { console.log('filter', term, result); return result; }))
+      .map(i => { this.filterLoading = false; return i; })
       .subscribe(filter => this.filter = filter);
 
     this.sub = this.route.params.subscribe(params => {

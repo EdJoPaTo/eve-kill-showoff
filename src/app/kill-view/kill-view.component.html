@@ -30,7 +30,7 @@
   <div class="container">
     <progress class="progress" [class.is-success]="!errorMessage" [class.is-danger]="errorMessage" [max]="totalIds" [value]="killmails.length" [class.fadeout]="totalIds === killmails.length"></progress>
     <div class="control is-grouped">
-      <p class="control is-expanded">
+      <p class="control is-expanded" [class.is-loading]="filterLoading">
         <input class="input" type="search" placeholder="filter…" #filterBox id="filter-box" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" (keyup)="filterSubject.next(filterBox.value)" />
       </p>
       <p class="control has-addons">
