@@ -1,6 +1,6 @@
 # Eve Kill Showoff
 
-This project is mainly done for [Bombers Bar](http://bombersbareve.com), a EVE Online NPSI community for cloakies.
+This project is mainly done for [Bombers Bar](http://bombersbareve.com), an EVE Online NPSI community for cloakies.
 Because all players are not in one corporation or alliance its hard to track actual kills of Bombers Bar with tools like [zKillboard](https://zkillboard.com).
 
 This page want to show kills by a simple list of kill ids instead of grabbing them from pilots, corporations or alliances.
