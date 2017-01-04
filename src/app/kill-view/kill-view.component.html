@@ -10,8 +10,7 @@
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
-          <li [class.is-active]="isCurrentMonth()"><a (click)="goToCurrentMonth()">Current Month</a></li>
-          <li *ngFor="let date of killmails | killmailDates: true" [class.is-active]="date.year === year && date.month === month">
+          <li *ngFor="let date of killmails | killmailDates" [class.is-active]="date.year === year && date.month === month">
             <a (click)="year = date.year; month = date.month; updateUrl()">{{ date.monthName }} {{ date.year }}</a>
           </li>
         </ul>

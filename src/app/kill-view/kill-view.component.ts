@@ -30,6 +30,8 @@ export class KillViewComponent implements OnInit, OnDestroy {
   private killIds: Observable<number[]>;
   totalIds: number = 0;
   killmails: Killmail[] = [];
+  newestKillYear: number;
+  newestKillMonth: number;
   errorMessage: string = '';
 
   constructor(
@@ -58,6 +60,19 @@ export class KillViewComponent implements OnInit, OnDestroy {
       .concatMap(id => this.killmailService.get(id))
       .subscribe(
       kill => {
+        if (!this.newestKillYear && !this.newestKillMonth) {
+          // the first loaded kill is the newest one (ids are sorted)
+          let killDate = KillTimeToDatePipe.toDate(kill.killTime);
+          this.newestKillYear = killDate.getUTCFullYear();
+          this.newestKillMonth = killDate.getUTCMonth() + 1;
+        }
+
+        if (!this.year && !this.month) {
+          // If year and month are not set by current route -> use newest one
+          this.year = this.newestKillYear;
+          this.month = this.newestKillMonth;
+        }
+
         let list = this.killmails.concat(kill);
         list.sort((a, b) => Number(KillTimeToDatePipe.toDate(b.killTime)) - Number(KillTimeToDatePipe.toDate(a.killTime)));
         this.killmails = list;
@@ -81,11 +96,7 @@ export class KillViewComponent implements OnInit, OnDestroy {
       });
 
     this.sub = this.route.params.subscribe(params => {
-      if (!params['year'] && !params['month']) {
-        let today = new Date();
-        this.year = today.getUTCFullYear();
-        this.month = today.getUTCMonth() + 1;
-      } else {
+      if (params['year'] && params['month']) {
         this.year = Number(params['year']);
         this.month = Number(params['month']);
       }
@@ -98,23 +109,11 @@ export class KillViewComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  isCurrentMonth(): boolean {
-    let today = new Date();
-    return this.year === today.getUTCFullYear() && this.month === today.getUTCMonth() + 1;
-  }
-
-  goToCurrentMonth(): void {
-    let today = new Date();
-    this.year = today.getUTCFullYear();
-    this.month = today.getUTCMonth() + 1;
-    this.updateUrl();
-  }
-
   updateUrl() {
     let params: any = {};
     let monthSelectorPart = '';
 
-    if (!this.isCurrentMonth()) {
+    if (this.year !== this.newestKillYear || this.month !== this.newestKillMonth) {
       monthSelectorPart = '/' + this.year + '/' + this.month;
     }
 
