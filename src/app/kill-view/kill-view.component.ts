@@ -19,7 +19,8 @@ export class KillViewComponent implements OnInit, OnDestroy {
   background = '';
   backgroundIsDark = false;
 
-  private sub: Subscription;
+  private routeParamSub: Subscription;
+  private routeDataSub: Subscription;
   year: number;
   month: number;
 
@@ -95,18 +96,21 @@ export class KillViewComponent implements OnInit, OnDestroy {
         this.filterLoading = false;
       });
 
-    this.sub = this.route.params.subscribe(params => {
+    this.routeParamSub = this.route.params.subscribe(params => {
       if (params['year'] && params['month']) {
         this.year = Number(params['year']);
         this.month = Number(params['month']);
       }
+    });
 
-      this.view = params['view'] === 'list' ? 'list' : 'tiles';
+    this.routeDataSub = this.route.data.subscribe(data => {
+      this.view = data['view'];
     });
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.routeParamSub.unsubscribe();
+    this.routeDataSub.unsubscribe();
   }
 
   updateUrl() {
