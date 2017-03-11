@@ -1,29 +1,39 @@
 <nav class="level">
   <div class="level-item has-text-centered">
-    <p class="heading">Damage dealt</p>
-    <p class="title">{{ damageDealt | shortnumber: true }}</p>
+    <div>
+      <p class="heading">Damage dealt</p>
+      <p class="title">{{ damageDealt | shortnumber: true }}</p>
+    </div>
   </div>
   <div class="level-item has-text-centered">
-    <p class="heading">Kills</p>
-    <p class="title">{{ killmails.length }}</p>
+    <div>
+      <p class="heading">Kills</p>
+      <p class="title">{{ killmails.length }}</p>
+    </div>
   </div>
   <div class="level-item has-text-centered">
-    <p class="heading">Pilots involved</p>
-    <p class="title">{{ (killmails | attacker: 'characterID' | distinct).length | shortnumber: true }}</p>
+    <div>
+      <p class="heading">Pilots involved</p>
+      <p class="title">{{ (killmails | attacker: 'characterID' | distinct).length | shortnumber: true }}</p>
+    </div>
   </div>
   <div class="level-item has-text-centered">
-    <p class="heading">ISK destroyed</p>
-    <p class="title">{{ iskDestroyed | shortnumber }}</p>
+    <div>
+      <p class="heading">ISK destroyed</p>
+      <p class="title">{{ iskDestroyed | shortnumber }}</p>
+    </div>
   </div>
 </nav>
 <nav class="level" id="top-pilots" *ngIf="(killmails | attacker | topPilots).length">
   <div class="level-item has-text-centered" *ngFor="let pilot of killmails | attacker | topPilots">
-    <p class="heading">on {{ pilot.count }} kills</p>
-    <a target="_blank" [href]="'https://zkillboard.com/character/'+ pilot.id +'/'">
-      <img class="is-hidden-mobile image is-64x64" [alt]="pilot.name" [src]="'https://imageserver.eveonline.com/Character/'+ pilot.id +'_128.jpg'" />
-      <br class="is-hidden-mobile" />
-      <p class="title">{{ pilot.name }}</p>
-    </a>
+    <div>
+      <p class="heading">on {{ pilot.count }} kills</p>
+      <a target="_blank" [href]="'https://zkillboard.com/character/'+ pilot.id +'/'">
+        <img class="is-hidden-mobile image is-64x64" [alt]="pilot.name" [src]="'https://imageserver.eveonline.com/Character/'+ pilot.id +'_128.jpg'" />
+        <br class="is-hidden-mobile" />
+        <p class="title">{{ pilot.name }}</p>
+      </a>
+    </div>
   </div>
 </nav>
 <app-tiles-view *ngIf="!listview" [killmails]="killmails"></app-tiles-view>
