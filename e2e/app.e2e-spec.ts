@@ -1,6 +1,6 @@
 import { EveKillShowoffPage } from './app.po';
 
-describe('eve-kill-showoff App', function() {
+describe('eve-kill-showoff App', () => {
   let page: EveKillShowoffPage;
 
   beforeEach(() => {

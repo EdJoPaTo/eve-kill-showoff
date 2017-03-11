@@ -1,11 +1,10 @@
-/* tslint:disable:no-unused-variable */
-
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
@@ -13,13 +12,12 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-    });
-    TestBed.compileComponents();
-  });
+    }).compileComponents();
+  }));
 
   it('should create the app', async(() => {
-    let fixture = TestBed.createComponent(AppComponent);
-    let app = fixture.debugElement.componentInstance;
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
 });
